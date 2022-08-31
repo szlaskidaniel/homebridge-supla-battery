@@ -81,7 +81,7 @@ SuplaBattery.prototype = {
           let batteryValue = json.humidity; // humidity == percentage in Volts
           let UPSState = 0;
 
-          if (batteryValue > 13) {            
+          if (batteryValue > this.maxv) {            
             UPSState = 0;
             batteryValue = 100;
           } else {
