@@ -87,6 +87,7 @@ SuplaBattery.prototype = {
           } else {
             UPSState = 1;
             batteryValue = mapBetween(batteryValue, 0, 100, this.minv, this.maxv);
+            if ((Math.round(batteryValue * 100) / 100) % 10 === 0) this.log.warn('Battery lvl', Math.round(batteryValue * 100) / 100);
           }
                                       
           this.service.getCharacteristic(Characteristic.On).updateValue(UPSState)
@@ -101,9 +102,7 @@ SuplaBattery.prototype = {
           if (this.lowBatteryTreshold) {             
             this.batteryService.getCharacteristic(Characteristic.StatusLowBattery).updateValue(batteryValue < this.lowBatteryTreshold ? 1 : 0);
             if (batteryValue < this.lowBatteryTreshold) this.log('Low battery warning');
-          }
-                              
-          if ((Math.round(batteryValue * 100) / 100) % 10 === 0) this.log.warn('Battery lvl', Math.round(batteryValue * 100) / 100);
+          }                                        
                   
           callback()
         } catch (e) {
