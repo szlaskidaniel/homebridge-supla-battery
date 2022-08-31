@@ -19,7 +19,7 @@ function SuplaBattery (log, config) {
   this.lowBatteryTreshold = config.lowBatteryTreshold;
 
   this.maxv = config.maxv || 12.9; // 100%
-  this.minv = config.minv || 11.9;  // 0%
+  this.minv = config.minv || 10.6;  // 0%
   
   
   this.manufacturer = config.manufacturer || packageJson.author
@@ -102,6 +102,8 @@ SuplaBattery.prototype = {
             this.batteryService.getCharacteristic(Characteristic.StatusLowBattery).updateValue(batteryValue < this.lowBatteryTreshold ? 1 : 0);
             if (batteryValue < this.lowBatteryTreshold) this.log('Low battery warning');
           }
+                              
+          if ((Math.round(batteryValue * 100) / 100) % 10 === 0) this.log.warn('Battery lvl', Math.round(batteryValue * 100) / 100);
                   
           callback()
         } catch (e) {
