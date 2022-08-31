@@ -87,7 +87,7 @@ SuplaBattery.prototype = {
           } else {
             UPSState = 1;
             batteryValue = mapBetween(batteryValue, 0, 100, this.minv, this.maxv);
-            if ((Math.round(batteryValue * 100) / 100) % 10 === 0) this.log.warn('Battery lvl', Math.round(batteryValue * 100) / 100);
+            if (Math.round(batteryValue) % 10 === 0) this.log.warn('Battery lvl', Math.round(batteryValue));
           }
                                       
           this.service.getCharacteristic(Characteristic.On).updateValue(UPSState)
