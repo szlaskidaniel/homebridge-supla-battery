@@ -1,0 +1,30 @@
+{
+  "name": "homebridge-supla-battery",
+  "version": "1.0.0",
+  "description": "Homebridge plugin for a Supla Battery status",
+  "main": "index.js",
+  "dependencies": {
+    "request": ">=2.88.0",
+    "moment": "^2.29.1"
+  },
+  "engines": {
+    "homebridge": ">=0.4.50",
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szlaskidaniel/homebridge-supla-battery.git"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "author": "DanielSzlaski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szlaskidaniel/homebridge-supla-battery/issues"
+  },
+  "homepage": "https://github.com/szlaskidaniel/homebridge-supla-battery#readme"
+}
